@@ -1,0 +1,30 @@
+name: release
+
+on:
+  push:
+    branches: [ master ]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/setup-dotnet@v1
+      with:
+        dotnet-version: 5.0.x
+
+    - uses: actions/checkout@v2
+
+    - name: Set version
+      run: |
+        curl --location --output tsv https://github.com/jasondavis303/TimestampVersion/releases/latest/download/tsv
+        chmod +x tsv
+        ./tsv --xml-files TagAndRelease/TagAndRelease.csproj --env-file $GITHUB_ENV --verbose
+      
+    - name: Build
+      run: |
+        dotnet publish -r win-x64 -p:PublishSingleFile=true --no-self-contained -c release -o upload
+        dotnet publish -r linux-x64 -p:PublishSingleFile=true --no-self-contained -c release -o upload
+        chmod +x ./upload/tar
+        ./upload/tar --owner jasondavis303 --repo-name TagAndRelease --github-token ${{ secrets.GITHUB_TOKEN }} --set-version ${{ env.TIMESTAMP_VERSION }} --assets upload/tar upload/tar.exe --verbose

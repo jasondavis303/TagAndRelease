@@ -3,10 +3,23 @@
   <PropertyGroup>
     <OutputType>Exe</OutputType>
     <TargetFramework>net5.0</TargetFramework>
+    <RuntimeIdentifiers>win-x64;linux-x64</RuntimeIdentifiers>
+    <Version>1.0.0.1</Version>
+    <Authors>Jason Davis</Authors>
+    <Company>jasondavis303</Company>
+    <Product>TagAndRelease</Product>
+    <Description>Command line tool to simplify the tag &amp; release process in Github Actions</Description>
+    <Copyright>jasondavis303</Copyright>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <PackageProjectUrl>https://github.com/jasondavis303/TagAndRelease</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/jasondavis303/TagAndRelease</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+    <AssemblyName>tar</AssemblyName>
   </PropertyGroup>
 
   <ItemGroup>
     <PackageReference Include="CommandLineParser" Version="2.8.0" />
+    <PackageReference Include="MimeTypeMapOfficial" Version="1.0.15" />
     <PackageReference Include="Octokit" Version="0.50.0" />
     <PackageReference Include="TimestampVersion" Version="21.4.13.156" />
   </ItemGroup>
