@@ -14,12 +14,14 @@ namespace TagAndRelease
         {
             Console.WriteLine("Tag and Release");
             Console.WriteLine($"v{Assembly.GetExecutingAssembly().GetName().Version}");
+            Console.WriteLine();
 
             int ret = -1;
 
             try
             {
                 Parser.Default.ParseArguments<CLOptions>(args).WithParsed(opts => RunAsync(opts).Wait());
+                ret = 0;
             }
             catch (AggregateException ex)
             {
@@ -66,9 +68,11 @@ namespace TagAndRelease
                 var commit = await client.Repository.Commit.Get(opts.Owner, opts.RepoName, opts.Branch);
                 var newTag = new NewTag
                 {
-                    Object = commit.Sha.Substring(0, 7),
+                    Message = commit.Commit.Message,
+                    Object = commit.Sha,
                     Tag = opts.Version,
                     Type = TaggedType.Commit,
+                    Tagger = commit.Commit.Author                   
                 };
                 await client.Git.Tag.Create(opts.Owner, opts.RepoName, newTag);
             }
