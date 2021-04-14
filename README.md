@@ -1,6 +1,6 @@
 [![release](https://github.com/jasondavis303/TagAndRelease/actions/workflows/release.yml/badge.svg)](https://github.com/jasondavis303/TagAndRelease/actions/workflows/release.yml)
 
-Windoows Exe: https://github.com/jasondavis303/TagAndRelease/releases/latest/download/tar.exe
+Windows Exe: https://github.com/jasondavis303/TagAndRelease/releases/latest/download/tar.exe
 
 Linux Exe: https://github.com/jasondavis303/TagAndRelease/releases/latest/download/tar
 
