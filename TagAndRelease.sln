@@ -6,6 +6,9 @@ MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TagAndRelease", "TagAndRelease\TagAndRelease.csproj", "{78D06245-F4D0-40EA-AF9C-ED69049C0A86}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{95640AB6-2BC4-494C-A231-3A3CCD4C5049}"
+	ProjectSection(SolutionItems) = preProject
+		README.md = README.md
+	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".github", ".github", "{65E07D2D-F4A1-4F0D-9026-A2DBAC537E0B}"
 EndProject
